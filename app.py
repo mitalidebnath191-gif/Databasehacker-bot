@@ -21,15 +21,75 @@ user_notes = {}
 # ==========================================
 @bot.message_handler(commands=['start'])
 def send_welcome(m):
-    welcome_text = """
-🚨 **WELCOME TO MEGA ULTRA BOT** 🚨
+    welcome_text = """🚨 WELCOME TO MEGA ULTRA BOT 🚨
 ━━━━━━━━━━━━━━━━━━━━━━
 হ্যালো বস! 😎 আপনার প্রাইভেট হাই-সিকিউরিটি ইন্টেলিজেন্স বট একদম রেডি এবং অনলাইনে আছে। ⚡
 
-আপনার দেওয়া সমস্ত কমান্ড (AI, CBI Mode, OSINT, Media, Hack Tools) এখন সিস্টেমে অ্যাক্টিভ! যেকোনো কমান্ড টাইপ করে দেখুন।
-"""
-    bot.reply_to(m, welcome_text, parse_mode="Markdown")
+🛠️ সিস্টেম কমান্ড মেনু:
 
+🤖 আর্টিফিশিয়াল ইন্টেলিজেন্স (AI):
+🔹 /ask [প্রশ্ন] - লাইভ ইন্টারনেট থেকে তাজা খবর ও উত্তর
+🔹 /ai [প্রশ্ন] - বটের অফলাইন ব্রেইন থেকে উত্তর
+
+🕵️‍♂️ ইন্টেলিজেন্স স্ক্যানার (CBI Mode):
+🔹 /name [নম্বর] - আল্ট্রা স্ক্যানার (নাম, লোকেশন, ইমেইল এবং ফেক ডিজিটাল ফুটপ্রিন্ট)
+🔹 /track [নম্বর] - সিমের বেসিক লোকেশন এবং কোম্পানির নাম
+🔹 /social [নম্বর] - OSINT সোশ্যাল ফুটপ্রিন্ট স্ক্যানার (Bypass Mode) 🚨
+
+⚙️ সার্ভার কন্ট্রোল:
+🔹 /ping - বটের স্পিড এবং কানেকশন স্ট্যাটাস চেক করুন।
+🔹 /ai proshno - AI er sathe jekono kotha bolun
+🔹 /math onko - Onko ba math dhap-e-dhap solve korun
+🔹 /graph somikoron - Math equation er graph toiri
+🔹 /formula topic - Jyamiti ba onkor sutro dekho
+🔹 /routine - Apnar weekly study routine dekhun
+🔹 /tr bhasa text - Jekono vasa translate korun
+🔹 /wiki topic - Wikipedia theke tothyo janun
+
+📓 Notebook & Focus (Nijer Kaj)
+🔹 /note text - Dorkari kotha/porashona save rakhun
+🔹 /notes - Apnar save kora sob note dekhun
+🔹 /delnote number - Kono note delete korun
+🔹 /timer min - Porar jonno focus timer set korun
+
+💻 Dev & Cyber (Hacker Tools)
+🔹 /run code - Code run kore output dekhun
+🔹 /termux tool - Termux o Linux command guide
+🔹 /hash text - Text ke MD5 te lock korun
+🔹 /decrypt hash - MD5 hash crack/decrypt korun
+🔹 /payload sni - Custom HTTP payload toiri
+🔹 /bin number - Bank BIN er details check
+
+🛠 OSINT & Net (Information Gathering)
+🔹 /snicheck host - SNI/Host alive kina check kora
+🔹 /ss url - Jekono website er screenshot nin
+🔹 /sub domain - Website er gopon subdomain khonja
+🔹 /ipinfo ip - IP address er location track
+🔹 /portscan ip - Open port scan kora
+🔹 /scrape url - Website theke sob link ber kora
+🔹 /pincode pin - Pincode diye elakar tothyo ber kora
+
+🛡️ Anti-Hack (Security)
+🔹 /privacy platform - Account hack theke banchar upay
+🔹 /scam - Live scam alert theke satorko thakun
+🔹 /scanfile reply - File e virus ache kina check kora
+🔹 /breach email - Email hack/leak hoyeche kina check
+
+🔧 Media & Tools (Edit o Design)
+🔹 /card nam - AI diye sundor greeting card banano
+🔹 /colorgrade reply - Chobir cinematic color dewa
+🔹 /restore reply - Ghola chobi HD ba Clear kora
+🔹 /qr text - QR code toiri kora
+🔹 /pdf reply - Chobi theke PDF banano
+🔹 /pnr pnr - Train er PNR status check kora
+🔴 /train example example - train ar somy chek korar jonno ata vul korte pare tai akbar where is my train app a dhake neben karon ata ai
+🔴 /askblackbox ai
+
+🖼 Pro Tip: Bot e jekono chobi (Photo/Document) pathale seta auto WebP te convert hobe o EXIF data dekhabe!"""
+    
+    # parse_mode বাদ দিলাম যাতে আপনার ব্র্যাকেট [ ] বা চিহ্নগুলোর জন্য কোনো Error না আসে
+    bot.reply_to(m, welcome_text)
+    
 # ==========================================
 # 📓 NOTEBOOK & FOCUS
 # ==========================================
