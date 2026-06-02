@@ -1,24 +1,27 @@
 import os
-import telebot
-import urllib.parse
-import requests
 import time
+import urllib.parse
 import hashlib
-from flask import Flask, request
+import requests
+import re
 import phonenumbers
 from phonenumbers import geocoder, carrier, timezone
-import re
-import time
-import urllib.parse
+from flask import Flask, request
+import telebot
+
 # ==========================================
-# ⚙️ CONFIGURATION
+# 🚀 SERVER ENGINE (Vercel & Flask)
 # ==========================================
-BOT_TOKEN = os.environ.get('BOT_TOKEN')
-bot = telebot.TeleBot(BOT_TOKEN)
 app = Flask(__name__)
 
-user_spam_tracker = {}
-user_notes = {}
+# আপনার বটের টোকেন (Vercel Environment Variables থেকে নেবে)
+BOT_TOKEN = os.environ.get('BOT_TOKEN')
+bot = telebot.TeleBot(BOT_TOKEN)
+
+# ==========================================
+# (এর নিচ থেকে আপনার /start বা বাকি সব কমান্ডের কোড যেমন ছিল তেমনই থাকবে)
+# ==========================================
+
 
 # ==========================================
 # 🚨 WELCOME MENU
