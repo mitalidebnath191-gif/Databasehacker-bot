@@ -9,7 +9,7 @@ from flask import Flask, request
 # ==========================================
 # ⚙️ CONFIGURATION
 # ==========================================
-BOT_TOKEN = os.environ.get('8954334041:AAEQ9DvtD5DS52QySAxcyvAxuixL8tWwLA4')
+BOT_TOKEN = os.environ.get('BOT_TOKEN')
 bot = telebot.TeleBot(BOT_TOKEN)
 app = Flask(__name__)
 
