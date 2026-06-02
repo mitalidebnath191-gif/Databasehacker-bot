@@ -724,22 +724,21 @@ def server_control_tools(m):
             bot.reply_to(m, f"🔤 **Translation ({target_lang.upper()}):**\n`{translated}`", parse_mode="Markdown")
         except:
             bot.reply_to(m, "❌ অনুবাদ করা যায়নি! ভাষার কোড ঠিক দিয়েছেন কি না চেক করুন (যেমন: en, bn, hi)।")
-# ==========================================
-# 🌐 VERCEL WEBHOOK SYSTEM
-# ==========================================
-@app.route('/', methods=['GET'])
-def index():
-    return "🚀 MEGA ULTRA BOT is ALIVE on Vercel Serverless!", 200
 
-@app.route('/' + BOT_TOKEN, methods=['POST'])
-def webhook():
-    update = telebot.types.Update.de_json(request.stream.read().decode("utf-8"))
-    bot.process_new_updates([update])
-    return "OK", 200
+# ==========================================
+# 🌐 VERCEL SERVERLESS WEBHOOK (একদম শেষে থাকবে)
+# ==========================================
+@app.route('/', methods=['GET', 'POST'])
+def index():
+    if request.method == 'POST':
+        update = telebot.types.Update.de_json(request.stream.read().decode("utf-8"))
+        bot.process_new_updates([update])
+        return "OK", 200
+    return "MEGA ULTRA BOT is ALIVE! 🚀", 200
 
 @app.route('/setwebhook', methods=['GET'])
 def set_webhook():
+    webhook_url = f"https://{request.host}/"
     bot.remove_webhook()
-    time.sleep(1)
-    s = bot.set_webhook(url=request.url_root + BOT_TOKEN)
-    return "✅ MEGA ULTRA Webhook setup successful!" if s else "❌ Setup failed!"
+    bot.set_webhook(url=webhook_url)
+    return "✅ MEGA ULTRA Webhook setup successful!", 200
